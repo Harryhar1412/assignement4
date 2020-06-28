@@ -1,0 +1,944 @@
+#21/25
+# 1.Write a Python program to count the number of characters (character
+# frequency) in a string.
+val = input("Enter a word For counting Character frequency:")
+frequency = {}
+d = {}
+for i in val:
+    if i in frequency:
+        frequency[i] += 1
+    else:
+        frequency[i] = 1
+# print (frequency)
+sort_frequency = sorted(frequency.items(), key=lambda x: x[1], reverse=True)
+d = {i[0]: i[1] for i in sort_frequency}
+print(d)
+# print(type(sort_frequency))
+# print (sort_frequency)
+
+# =========================================================================
+# 2. Write a Python program to get a string made of the first 2 and the last 2 chars
+# from a given a string. If the string length is less than 2, return instead of the
+# empty string.
+
+# def string_both_ends(str):
+#   if len(str) < 2:
+#     return 'Empty String'
+#
+#   return str[0:2] + str[-2:]
+#
+# print(string_both_ends('python'))         //pyon
+# print(string_both_ends('py'))             //pypy
+# print(string_both_ends('p'))              //Empty String
+
+usr_input = input("Enter string:")
+if len(usr_input) >= 2:
+    print(usr_input[0:2] + usr_input[-2:])
+else:
+    print ("Empty String")
+
+#==================================================================================
+
+# 3.Write a Python program to get a string from a given string where all
+# occurrences of its first char have been changed to '$', except the first char itself.
+# def change_char(str1):
+#   char = str1[0]
+#   str1 = str1.replace(char, '$')
+#   str1 = char + str1[1:]
+#
+#   return str1
+#
+# print(change_char('restart'))
+
+usr_input=input("Enter String:")
+c=usr_input[0]
+usr_input=usr_input.replace(c,'$')
+usr_input=c+usr_input[1:]
+print (usr_input)
+#==================================================================================
+# 4.Write a Python program to get a single string from two given strings, separated
+# by a space and swap the first two characters of each string.
+# def chars_mix_up(a, b):
+#   new_a = b[:2] + a[2:]
+#   new_b = a[:2] + b[2:]
+#
+#   return new_a + ' ' + new_b
+# print(chars_mix_up('abc', 'xyz'))
+
+usr_input1 = input("First String: ")
+usr_input2 = input("Second String: ")
+output1 = usr_input2[:2] + usr_input1[2:]
+output2 = usr_input1[:2] + usr_input2[2:]
+print(output1 + '  ' + output2)
+
+
+#==================================================================================
+# 5. Write a Python program to add 'ing' at the end of a given string (length should
+# be at least 3). If the given string already ends with 'ing' then add 'ly' instead. If the
+# string length of the given string is less than 3, leave it unchanged.
+
+
+# def add_string(str1):
+#   length = len(str1)
+#
+#   if length > 2:
+#     if str1[-3:] == 'ing':
+#       str1 += 'ly'
+#     else:
+#       str1 += 'ing'
+#
+#   return str1
+# print(add_string('ab'))
+# print(add_string('abc'))
+# print(add_string('string'))
+
+def questionno5(data):
+    if len(data) > 2:
+        if data[-3:] == 'ing':
+            data += 'ly'
+        else:
+            data += 'ing'
+    return data
+
+usr_input = input("enter The Value: ")
+result=questionno5(usr_input)
+print(result)
+
+#==================================================================================
+# 6. Write a Python program to find the first appearance of the substring 'not' and
+# 'poor' from a given string, if 'not' follows the 'poor', replace the whole 'not'...'poor'
+# substring with 'good'. Return the resulting string.
+
+def negetioncase(data):
+    notstr=data.find('not')
+    strafter=data.find('poor')
+    if strafter > notstr:
+        data = data.replace(data[notstr:(strafter + 4)], 'good')
+
+    return data
+
+usr_input=input("Enter as statement including Not: ")
+res=negetioncase(usr_input)
+print(res)
+#==================================================================================
+# 7. Write a Python function that takes a list of words and returns the length of the
+# longest one.
+
+def logest_listitem(listeargs):
+    find_length = []
+    for n in listeargs:
+        find_length.append((len(n)))
+    find_length.sort()
+    
+    return find_length[-1]
+
+
+input_string = input("Enter a list elements separated by space ")
+userList = input_string.split()
+print(logest_listitem(userList))
+
+#==================================================================================
+# 8. Write a Python program to remove the nthindex character from a nonempty
+# string
+def truncate_char(str, n):
+    starttext = str[:n]
+    endtext = str[n + 1:]
+    return starttext + endtext
+
+
+input_string = input("Enter String value: ")
+pos = int(input("Enter the Position: "))
+print(truncate_char(input_string, pos))
+
+#==================================================================================
+
+# 9. Write a Python program to change a given string to a new string where the first
+# and last chars have been exchanged.
+def value_exchanger(data):
+    return data[-1:] + data[1:-1] + data[:1]
+
+
+usr_input = input("Enter string value : ")
+print(value_exchanger(usr_input))
+
+#==================================================================================
+# 10. Write a Python program to remove the characters which have odd index
+# values of a given string.
+def truncate_odd_index(str):
+    result = ''
+    for i in range(len(str)):
+        if i % 2 == 1:
+            result = result + str[i]
+    return result
+
+
+usr_input = input("Enter the string: ")
+print(truncate_odd_index(usr_input))
+
+#==================================================================================
+# 11. Write a Python program to count the occurrences of each word in a given
+# sentence
+
+def occurance_count(str):
+    counts = dict()
+    words = str.split()
+
+    for word in words:
+        if word in counts:
+            counts[word] += 1
+        else:
+            counts[word] = 1
+
+    return counts
+
+
+usr_input = input("Enter the Sentance to Cout the Occurance of Word: ")
+print(occurance_count(usr_input))
+
+#==================================================================================
+# 12. Write a Python script that takes input from the user and displays that input
+# back in upper and lower cases
+
+def upper_text(str_value):
+    res = str_value.upper()
+    return res
+
+
+usr_input = input("Enter The string value: ")
+print (upper_text(usr_input))
+
+#==================================================================================
+# 13. Write a Python program that accepts a comma separated sequence of words
+# as input and prints the unique words in sorted form (alphanumerically).
+#
+input_string = input("Enter a list elements separated by space: ")
+words = [word for word in input_string.split(",")]
+print(",".join(sorted(list(set(words)))))
+# listToStr = ' '.join([str(elem) for elem in res])
+# print(listToStr)
+
+
+#==================================================================================
+# 14. Write a Python function to create the HTML string with tags around the
+# word(s).
+
+def add_tags(tg, stmnt):
+    out_exe = "<" + tg + ">"
+    termi = "</" + tg + ">"
+    return out_exe + stmnt + termi
+
+
+usr_input = input("Enter Tag specification of html: ")
+usr_stmt = input("Statment that you want to execute: ")
+print(add_tags(usr_input, usr_stmt))
+
+#==================================================================================
+# 15. Write a Python function to insert a string in the middle of a string.
+def new_string(data, text):
+    # a = len(data) / 2
+    val = data[:2] + text + data[2:]
+    return val
+
+
+string_first_last = input("Enter The String for First and Last: ")
+string_middle = input("Enter The String In Middle of another String: ")
+print (new_string(string_first_last, string_middle))
+#==================================================================================
+# 16. Write a Python program to sum all the items in a list
+def sum_list(items):
+    sum_numbers = 0
+    for x in items:
+        sum_numbers += x
+    return sum_numbers
+
+
+input_string = input("Enter a list elements separated by space ")
+userList = input_string.split()
+for i in range(0, len(userList)):
+    userList[i] = int(userList[i])
+# print (userList)
+print (sum_list(userList))
+
+#==================================================================================
+# 17. Write a Python program to multiplies all the items in a list.
+def mul_list(items):
+    mul_numbers = 1
+    for x in items:
+        mul_numbers *= x
+    return mul_numbers
+
+
+input_string = input("Enter a list elements separated by space ")
+userList = input_string.split()
+for i in range(0, len(userList)):
+    userList[i] = int(userList[i])
+# print (userList)
+print (mul_list(userList))
+
+#==================================================================================
+# 18. Write a Python program to get the largest number from a list.
+def largest(items):
+    lg = items[0]
+    for x in items:
+        if lg < x:
+            lg = x
+    return lg
+
+
+input_string = input("Enter a list elements separated by space ")
+userList = input_string.split()
+for i in range(0, len(userList)):
+    userList[i] = int(userList[i])
+# print (userList)
+print (largest(userList))
+
+#==================================================================================
+# 19. Write a Python program to get the smallest number from a list.
+def smallest(items):
+    sm = items[0]
+    for x in items:
+        if sm > x:
+            sm = x
+    return sm
+
+
+input_string = input("Enter a list elements separated by space ")
+userList = input_string.split()
+for i in range(0, len(userList)):
+    userList[i] = int(userList[i])
+# print (userList)
+print (smallest(userList))
+#==================================================================================
+# 20. Write a Python program to count the number of strings where the string
+# length is 2 or more and the first and last character are same from a given list of
+# strings.
+
+def start_end_same(items):
+    c = 0
+    for x in items:
+        if len(x) >= 2:
+            if x[0] == x[-1]:
+                c += 1
+    return c
+
+
+input_string = input("Enter a list elements separated by space: ")
+userList = input_string.split()
+print (start_end_same(userList))
+
+#==================================================================================
+# 21. Write a Python program to get a list, sorted in increasing order by the last
+# element in each tuple from a given list of non-empty tuples.
+def last(n): return n[-1]
+
+def sort_list_last(tuples):
+  return sorted(tuples, key=last)
+
+print(sort_list_last([(2, 5), (1, 2), (4, 4), (2, 3), (2, 1)]))
+#==================================================================================
+# 22. Write a Python program to remove duplicates from a list.
+def truncate_repeat(data):
+    dup_items = set()
+    uniq_items = []
+    for x in data:
+        if x not in dup_items:
+            uniq_items.append(x)
+            dup_items.add(x)
+
+    return (uniq_items)
+
+
+input_string = input("Enter a list elements separated by space ")
+userList = input_string.split()
+print (truncate_repeat(userList))
+
+#==================================================================================
+# 23. Write a Python program to check a list is empty or not.
+def check_list_empty(data):
+    l = []
+    if data == l:
+        return ("List is empty")
+    else:
+        return data
+
+
+input_string = input("Enter a list elements separated by space ")
+userList = input_string.split()
+print (check_list_empty(userList))
+
+#==================================================================================
+# 24. Write a Python program to clone or copy a list.
+import copy
+
+
+def copy_clone(data):
+    print (data)
+    # return (copy.copy(data))
+    return (copy.deepcopy(data))
+
+
+input_string = input("Enter a list elements separated by space ")
+userList = input_string.split()
+print (copy_clone(userList))
+
+
+#==================================================================================
+# 25. Write a Python program to check whether all dictionaries in a list are empty or
+# not.
+my_list = [{},{},{}]
+my_list1 = [{1,2},{},{}]
+print(all(not d for d in my_list))
+print(all(not d for d in my_list1))
+#==================================================================================
+# 26. Write a Python program to insert a given string at the beginning of all items in
+# a list.
+def prefix_text(li_data, text):
+    res = ["{}{}".format(text, i) for i in li_data]
+    return (res)
+
+
+input_string = input("Enter Prefix List : ")
+userList = input_string.split()
+str = input("text that Need to manipulate: ")
+print (prefix_text(userList, str))
+
+#==================================================================================
+# 27. Write a Python program to replace the last element in a list with another list.
+def replace_last_by_list(data, new_list):
+    # last_item=data[-1]
+    res = data[:-1] + new_list
+    return (res)
+
+
+input_string = input("Enter a list elements separated by space ")
+userList = input_string.split()
+second_list = input("Enter a list elements separated by space ")
+userList1 = second_list.split()
+print (replace_last_by_list(userList, userList1))
+
+#==================================================================================
+# 28. Write a Python script to add a key to a dictionary.
+def dict_keyaddd(data,newdata):
+    dictionary={data[i]: data[i + 1] for i in range(0, len(data), 2)}
+    print(dictionary)
+    dict1={newdata[i]: newdata[i + 1] for i in range(0, len(newdata), 2)}
+    dictionary.update(dict1)
+    print(dictionary)
+input_string = input("Enter a list elements separated by space: ")
+newsDictData = input("Enter a list elements separated by space: ")
+userList = input_string.split()
+keywordnew = newsDictData.split()
+dict_keyaddd(userList,keywordnew)
+
+#==================================================================================
+# 29. Write a Python script to concatenate following dictionaries to create a new
+# one.
+# def concating_dict(data, newdata):
+    # dictionary = {data[i]: data[i + 1] for i in range(0, len(data), 2)}
+    # print (dictionary)
+    # dict1 = {newdata[i]: newdata[i + 1] for i in range(0, len(newdata), 2)}
+    # dictionary.update(dict1)
+    # print (dictionary)
+dic1 = {1: 10, 2: 20}
+dic2 = {3: 30, 4: 40}
+dic3 = {5: 50, 6: 60}
+dic1.update(dic2)
+dic1.update(dic3)
+print(dic1)
+
+
+# input_string = input("Enter a list elements separated by space: ")
+# newsDictData = input("Enter a list elements separated by space: ")
+# userList = input_string.split()
+# keywordnew = newsDictData.split()
+# concating_dict(userList, keywordnew)
+
+#==================================================================================
+# 30. Write a Python script to check whether a given key already exists in a
+# dictionary
+d = {1: 10, 2: 20, 3: 30, 4: 40, 5: 50, 6: 60}
+def is_key_present(x):
+  if x in d:
+      print('Key is present in the dictionary')
+  else:
+      print('Key is not present in the dictionary')
+user_input=int(input("enter The Value Key: "))
+
+is_key_present(user_input)
+#==================================================================================
+# 31. Write a Python program to iterate over dictionaries using for loops.
+def dict_loop(data):
+    dict = {data[i]: data[i + 1] for i in range(0, len(data), 2)}
+    for key, value in dict.items():
+        print(key, 'corresponds to ', dict[key])
+
+
+newsDictData = input("Enter a list elements separated by space: ")
+userList = newsDictData.split()
+dict_loop(userList)
+
+#==================================================================================
+# 32. Write a Python script to generate and print a dictionary that contains a
+# number (between 1 and n) in the form (x, x*x).
+n=int(input("Input a number "))
+d = dict()
+
+for x in range(1,n+1):
+    d[x]=x*x
+
+print(d)
+#==================================================================================
+# 33. Write a Python script to print a dictionary where the keys are numbers
+# between 1 and 15 (both included) and the values are square of keys
+
+d = dict()
+
+for x in range(1,15+1):
+    d[x]=x*x
+
+print(d)
+#==================================================================================
+# 34. Write a Python script to merge two Python dictionaries.
+dic1 = {1: 10, 2: 20}
+dic2 = {3: 30, 4: 40}
+dic3 = {5: 50, 6: 60}
+dic1.update(dic2)
+dic1.update(dic3)
+print(dic1)
+#==================================================================================
+# 35. Write a Python program to iterate over dictionaries using for loops.
+def dict_loop(data):
+    dict = {data[i]: data[i + 1] for i in range(0, len(data), 2)}
+    for key, value in dict.items():
+        print(key, 'corresponds to ', dict[key])
+
+
+newsDictData = input("Enter a list elements separated by space: ")
+userList = newsDictData.split()
+dict_loop(userList)
+#==================================================================================
+# 36. Write a Python program to sum all the items in a dictionary.
+def sum_dict(data):
+    my_dict = {data[i]: data[i + 1] for i in range(0, len(data), 2)}
+    a = sum(my_dict.keys())
+    b = sum(my_dict.values())
+    return (a + b)
+
+
+input_string = input("Enter a list elements separated by space ")
+userList = input_string.split()
+for i in range(0, len(userList)):
+    userList[i] = int(userList[i])
+print(sum_dict(userList))
+
+#==================================================================================
+# 37. Write a Python program to multiply all the items in a dictionary.
+
+def mul_dict(data):
+    my_dict = {data[i]: data[i + 1] for i in range(0, len(data), 2)}
+    a = 1
+    for key, value in my_dict.items():
+        a = key * my_dict[key] * a
+    return a
+    
+input_string = input("Enter a list elements separated by space ")
+userList = input_string.split()
+for i in range(0, len(userList)):
+    userList[i] = int(userList[i])
+print(mul_dict(userList))
+
+#==================================================================================
+
+# 38. Write a Python program to remove a key from a dictionary
+
+def remove_key(data,keytoremove):
+    my_dict = {data[i]: data[i + 1] for i in range(0, len(data), 2)}
+    print (my_dict)
+    if keyremove in my_dict:
+        del my_dict[keyremove]
+    print (my_dict)
+
+input_string = input("Enter a list elements separated by space ")
+userList = input_string.split()
+keyremove=int(input("Input a number  as key  "))
+for i in range(0, len(userList)):
+    userList[i] = int(userList[i])
+remove_key(userList,keyremove)
+#==================================================================================
+# 39. Write a Python program to unpack a tuple in several variable
+def tuple_unpack(data):
+    a = data
+    (first, second, third) = a
+    print(first)
+    print(second)
+    print(third)
+
+
+input_string = input("Enter three character without space:  ")
+val = tuple(input_string)
+tuple_unpack(val)
+
+#==================================================================================
+# 40. Write a Python program to add an item in a tuple.
+def add_item_in_tuple(data):
+    data=data+(20,)
+    print (data)
+input_string = input("Enter three character without space:  ")
+val = tuple(input_string)
+add_item_in_tuple(val)
+#==================================================================================
+# 41. Write a Python program to convert a tuple to a string.
+def tuple_to_string(data):
+    print(data)
+    str = ''.join(data)
+    print (str)
+
+
+input_string = input("Enter three character without space:  ")
+val = tuple(input_string)
+tuple_to_string(val)
+
+#==================================================================================
+# 42. Write a Python program to convert a list to a tuple.
+input_string = input("Enter a list elements separated by space ")
+userList = input_string.split()
+print (userList)
+tupp=tuple(userList)
+print (tupp)
+
+#==================================================================================
+# 43. Write a Python program to remove an item from a tuple.
+tuplex = "w", 3, "r", "s", "o", "u", "r", "c", "e"
+print(tuplex)
+#tuples are immutable, so you can not remove elements
+#using merge of tuples with the + operator you can remove an item and it will create a new tuple
+tuplex = tuplex[:2] + tuplex[3:]
+print(tuplex)
+#converting the tuple to list
+listx = list(tuplex) 
+#use different ways to remove an item of the list
+listx.remove("c") 
+#converting the tuple to list
+tuplex = tuple(listx)
+print(tuplex)
+#==================================================================================
+# 44. Write a Python program to slice a tuple.
+# create a tuple
+input_string = input("Enter three character without space:  ")
+val = tuple(input_string)
+# used tuple[start:stop] the start index is inclusive and the stop index
+slice = val[3:5]
+# is exclusive
+print(slice)
+# if the start index isn't defined, is taken from the beg inning of the tuple
+_slice = val[:6]
+print(_slice)
+# if the end index isn't defined, is taken until the end of the tuple
+_slice = val[5:]
+print(_slice)
+# if neither is defined, returns the full tuple
+_slice = val[:]
+print(_slice)
+# The indexes can be defined with negative values
+_slice = val[-8:-4]
+print(_slice)
+# create another tuple
+tuplex = tuple("HELLO WORLD")
+print(tuplex)
+# step specify an increment between the elements to cut of the tuple
+# tuple[start:stop:step]
+_slice = tuplex[2:9:2]
+print(_slice)
+# returns a tuple with a jump every 3 items
+_slice = tuplex[::4]
+print(_slice)
+# when step is negative the jump is made back
+_slice = tuplex[9:2:-4]
+print(_slice)
+
+#==================================================================================
+# 45. Write a Python program to find the index of an item of a tuple.
+tuplex = tuple("index tuple")
+print(tuplex)
+index = tuplex.index("p")
+print(index)
+index = tuplex.index("p", 5)
+print(index)
+index = tuplex.index("e", 3, 6)
+print(index)
+# index = tuplex.index("y")
+
+#==================================================================================
+# 46. Write a Python program to find the length of a tuple
+input_string = input("Enter three character without space:  ")
+val = tuple(input_string)
+print(val)
+#use the len() function to known the length of tuple
+print(len(val))
+#==================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#==================================================================================
+# 1. Write a Python function to find the Max of three numbers.
+def max_find(x,y,z):
+    if x>y and x>z:
+        return x
+    elif y>z and y>x:
+        return y
+    else:
+        return z
+ui1=int(input("Enter first Number :"))
+ui2=int(input("Enter second Number :"))
+ui3=int(input("Enter third Number :"))
+print(max_find(ui1,ui2,ui3))
+
+#==================================================================================
+# 2. Write a Python function to sum all the numbers in a list.
+def sum_list(data):
+    sum_numbers = 0
+    for x in data:
+        sum_numbers += x
+    return sum_numbers
+usr_input=input("Enter first Number :")
+userList=usr_input.split()
+for i in range(0, len(userList)):
+    userList[i] = int(userList[i])
+print (sum_list(userList))
+
+#==================================================================================
+# 3. Write a Python function to multiply all the numbers in a list.
+def mul_list(items):
+    mul_numbers = 1
+    for x in items:
+        mul_numbers *= x
+    return mul_numbers
+
+
+input_string = input("Enter a list elements separated by space ")
+userList = input_string.split()
+for i in range(0, len(userList)):
+    userList[i] = int(userList[i])
+# print (userList)
+print (mul_list(userList))
+
+#==================================================================================
+# 4. Write a Python program to reverse a string.
+def reverse_fun(data):
+    str = ""
+    for i in data:
+        str = i + str
+    return str
+usr_input=input("enter The string to reverse: ")
+print (reverse_fun(usr_input))
+#==================================================================================
+# 5. Write a Python function to calculate the factorial of a number (a non-negative
+# integer). The function accepts the number as an argument.
+def factorial(n):
+    if n <= 0:
+        return 1
+    else:
+        return n * factorial(n - 1)
+
+
+n = int(input("Input a number to compute the factiorial : "))
+print(factorial(n))
+
+#==================================================================================
+# 6. Write a Python function to check whether a number is in a given range.
+def test_range(n):
+    if n in range(3, 9):
+        print(" %s is in the range" % str(n))
+    else:
+        print("The number is outside the given range.")
+
+
+n = int(input("Input a number to check in the range : "))
+test_range(n)
+
+#==================================================================================
+# 7. Write a Python function that accepts a string and calculate the number of
+# upper case letters and lower case letters
+def string_test(data):
+    up=0
+    lc=0
+    for c in data:
+        if c.isupper():
+           up+=1
+        elif c.islower():
+           lc+=1
+        else:
+           pass
+    print ("Original String : ", data)
+    print ("No. of Upper case characters : ", up)
+    print ("No. of Lower case Characters : ", lc)
+
+usr_input=input("Enter String value:")
+string_test(usr_input)
+
+#==================================================================================
+# 8. Write a Python function that takes a list and returns a new list with unique
+# elements of the first list.
+def truncate_repeat(data):
+    dup_items = set()
+    uniq_items = []
+    for x in data:
+        if x not in dup_items:
+            uniq_items.append(x)
+            dup_items.add(x)
+
+    return (uniq_items)
+
+
+input_string = input("Enter a list elements separated by space ")
+userList = input_string.split()
+print (truncate_repeat(userList))
+#==================================================================================
+# 9. Write a Python function that takes a number as a parameter and check the
+# number is prime or not.
+def test_prime(n):
+    if (n==1):
+        return "Nope"
+    elif (n==2):
+        return "Prime"
+    else:
+        for x in range(2,n):
+            if(n % x==0):
+                return "Nope"
+        return "Prime"
+
+usr_input=int(input("enter a Number to check Prime or not:"))
+print(test_prime(usr_input))
+#==================================================================================
+# 10. Write a Python program to print the even numbers from a given list.
+def evn_num(data):
+    newdat = []
+    for i in data:
+        if i % 2 == 0:
+            newdat.append(i)
+    print (newdat)
+
+
+input_string = input("Enter a list elements separated by space ")
+userList = input_string.split()
+for i in range(0, len(userList)):
+    userList[i] = int(userList[i])
+print (evn_num(userList))
+
+#==================================================================================
+#lambda
+# 11. Write a Python program to create a lambda function that adds 15 to a given
+# number passed in as an argument, also create a lambda function that multiplies
+# argument x with argument y and print the result.
+r = lambda a : a + 15
+user_val=int(input("enter a Number : "))
+print(r(user_val))
+h=int(input("Enter a Number : "))
+i=int(input("Enter a Number : "))
+r = lambda x, y : x * y
+print(r(h, i))
+#==================================================================================
+# 12. Write a Python program to create a function that takes one argument, and
+# that argument will be multiplied with an unknown given number.
+def func_compute(n):
+ return lambda x : x * n
+result = func_compute(2)
+print("Double the number of 15 =", result(15))
+#==================================================================================
+# 13. Write a Python program to sort a list of tuples using Lambda
+subject_marks = [('English', 88), ('Science', 90), ('Maths', 97), ('Social sciences', 82)]
+print(subject_marks)
+subject_marks.sort(key = lambda x: x[1])
+print("\nSorting the List of Tuples:")
+print(subject_marks)
+#==================================================================================
+# 14. Write a Python program to sort a list of dictionaries using Lambda.
+models = [{'make':'Nokia', 'model':216, 'color':'Black'}, {'make':'Mi Max', 'model':'2', 'color':'Gold'}, {'make':'Samsung', 'model': 7, 'color':'Blue'}]
+print("Original list of dictionaries :")
+print(models)
+sorted_models = sorted(models, key = lambda x: x['color'])
+print("\nSorting the List of dictionaries :")
+print(sorted_models)
+#==================================================================================
+# 15. Write a Python program to filter a list of integers using Lambda
+nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+print("Original list of integers:")
+print(nums)
+print("\nEven numbers from the said list:")
+even_nums = list(filter(lambda x: x%2 == 0, nums))
+print(even_nums)
+print("\nOdd numbers from the said list:")
+odd_nums = list(filter(lambda x: x%2 != 0, nums))
+print(odd_nums)
+#==================================================================================
+# 16. Write a Python program to square and cube every number in a given list of
+# integers using Lambda.
+nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+print("Original list of integers:")
+print(nums)
+print("\nSquare every number of the said list:")
+square_nums = list(map(lambda x: x ** 2, nums))
+print(square_nums)
+print("\nCube every number of the said list:")
+cube_nums = list(map(lambda x: x ** 3, nums))
+print(cube_nums)
+
+#==================================================================================
+# 17. Write a Python program to find if a given string starts with a given character
+# using Lambda.
+starts_with = lambda x: True if x.startswith('P') else False
+print(starts_with('Python'))
+starts_with = lambda x: True if x.startswith('P') else False
+print(starts_with('Java'))
+#==================================================================================
+# 18. Write a Python program to check whether a given string is number or not
+# using Lambda.
+is_num = lambda q: q.replace('.','',1).isdigit()
+print(is_num('26587'))
+print(is_num('4.2365'))
+print(is_num('-12547'))
+print(is_num('00'))
+print(is_num('A001'))
+print(is_num('001'))
+print("\nPrint checking numbers:")
+is_num1 = lambda r: is_num(r[1:]) if r[0]=='-' else is_num(r)
+print(is_num1('-16.4'))
+print(is_num1('-24587.11'))
+#==================================================================================
+# 19. Write a Python program to create Fibonacci series upto n using Lambda.
+from functools import reduce
+
+fib = lambda n: reduce(lambda x, _: x + [x[-1] + x[-2]],
+                       range(n - 2), [0, 1])
+
+print(fib(5))
+#==================================================================================
+# 20. Write a Python program to find intersection of two given arrays using
+# Lambda
+n1 = [1, 2, 3, 5, 7, 8, 9, 10]
+n2 = [1, 2, 4, 8, 9]
+print("Original arrays:")
+print(n1)
+print(n2)
+result = list(filter(lambda x: x in n1, n2))
+print ("\nIntersection of the said arrays: ",result)
+#==================================================================================
+
